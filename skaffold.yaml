@@ -1,0 +1,44 @@
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: tasks-backend
+build:
+  artifacts:
+  - image: ghcr.io/hsfl-webapps-react-ts-ss22/tasks-backend
+    sync:
+      auto: true
+    jib: {}
+  local:
+    useBuildkit: true
+deploy:
+  helm:
+    releases:
+    - name: tasks-backend-dev
+      chartPath: deploy/helm/tasks-backend
+      artifactOverrides:
+        backend.image: ghcr.io/hsfl-webapps-react-ts-ss22/tasks-backend
+      overrides:
+        backend:
+          enabled: true
+          args:
+          - --spring.profiles.active=development
+          - --spring.data.mongodb.host=tasks-backend-dev-mongodb
+        imagePullSecrets: []
+        ingress:
+          hostname: tasks-backend.cluster.local
+        mongodb:
+          auth:
+            password: ooRu4ieghohbae2E
+            rootPassword: miebixoph6Kiedai
+      imageStrategy:
+        helm: {}
+  kubeContext: minikube
+portForward:
+- resourceType: service
+  resourceName: tasks-backend-dev-mongodb
+  port: 27017
+  localPort: 27017
+- resourceType: service
+  resourceName: tasks-backend-dev-backend
+  port: 80
+  localPort: 8080

@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      username: tasks
+      password: ooRu4ieghohbae2E
+      database: tasks
+      port: 27017
+      host: localhost
+logging:
+  level:
+    org.springframework.web: DEBUG
+    de.progeek.tasks: DEBUG
+
