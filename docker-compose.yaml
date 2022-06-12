@@ -10,7 +10,7 @@ services:
     volumes:
       - 'mongodb_data:/bitnami/mongodb'
   tasks-backend:
-    image: ghcr.io/hsfl-webapps-react-ts-ss22/tasks-backend:1.0.0
+    image: ghcr.io/hsfl-webapps-react-ts-ss22/tasks-backend:1.1.0
     environment:
       MONGODB_PORT: 27017
       MONGODB_HOST: mongodb
