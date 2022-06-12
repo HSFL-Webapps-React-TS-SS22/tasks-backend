@@ -18,7 +18,8 @@ backend:
   extraEnv: {}
 
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: ghcr-io-secret
 nameOverride: ""
 fullnameOverride: ""
 
