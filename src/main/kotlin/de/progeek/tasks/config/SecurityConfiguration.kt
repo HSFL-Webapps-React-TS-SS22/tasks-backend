@@ -28,6 +28,7 @@ class SecurityConfiguration {
             .csrf().disable()
             .authorizeExchange()
             .pathMatchers("/task").authenticated()
+            .pathMatchers(HttpMethod.GET, "/user").authenticated()
             .pathMatchers("/**").permitAll()
             .and()
             .cors().configurationSource(createCorsConfigSource())

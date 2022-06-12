@@ -1,7 +1,10 @@
 package de.progeek.tasks.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+
 data class User(
     val username: String,
-    @Transient
-    val password: String
+    @JsonIgnore
+    val password: String,
+    val profile: Map<String, String> = emptyMap()
 )

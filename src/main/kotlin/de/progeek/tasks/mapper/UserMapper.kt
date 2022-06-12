@@ -7,13 +7,15 @@ import de.progeek.tasks.web.model.CreateUserRequest
 fun UserEntity.toDTO(): User {
     return User(
         username = this.username,
-        password = this.password
+        password = this.password,
+        profile = this.profile ?: emptyMap()
     )
 }
 
 fun CreateUserRequest.toEntity(): UserEntity {
     return UserEntity(
         username = this.username,
-        password = this.password
+        password = this.password,
+        profile = this.profile
     )
 }

@@ -54,7 +54,10 @@ class OpenApiConfiguration(val typeResolver: TypeResolver) {
     private fun basicSecurityContext(): SecurityContext {
         return SecurityContext.builder()
             .securityReferences(listOf(SecurityReference(BASIC_AUTH_NAME, arrayOf())))
-            .forPaths(PathSelectors.ant("/task/**"))
+            .operationSelector {
+                PathSelectors.ant("/task/**").test(it.requestMappingPattern()) ||
+                    (PathSelectors.ant("/user").test(it.requestMappingPattern()) && it.httpMethod() == HttpMethod.GET)
+            }
             .build()
     }
 
