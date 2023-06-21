@@ -2,7 +2,7 @@ spring:
   data:
     mongodb:
       username: tasks
-      password: ooRu4ieghohbae2E
+      password: pahshu4aiChi7Ega
       database: tasks
       port: 27017
       host: localhost

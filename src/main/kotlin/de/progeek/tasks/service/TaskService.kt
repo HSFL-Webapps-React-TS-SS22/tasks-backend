@@ -4,8 +4,8 @@ import de.progeek.tasks.dbo.TaskEntity
 import de.progeek.tasks.dbo.TaskRepository
 import de.progeek.tasks.mapper.ObjectIdMapper
 import de.progeek.tasks.mapper.TaskMapper
-import de.progeek.tasks.model.AuthenticatedUser
 import de.progeek.tasks.model.Task
+import de.progeek.tasks.security.AuthenticatedUser
 import de.progeek.tasks.web.model.CreateTaskRequest
 import de.progeek.tasks.web.model.UpdateTaskRequest
 import kotlinx.coroutines.flow.Flow

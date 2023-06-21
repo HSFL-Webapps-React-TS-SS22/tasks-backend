@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "de.progeek"
-version = "0.0.1-SNAPSHOT"
+version = "1.2.1"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 configurations {
@@ -38,6 +38,10 @@ dependencies {
     implementation("org.mapstruct:mapstruct:1.5.0.RC1")
 
     kapt("org.mapstruct:mapstruct-processor:1.5.0.RC1")
+
+    api("io.jsonwebtoken:jjwt-api:0.11.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-orgjson:0.11.5")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
@@ -73,5 +77,6 @@ kapt {
 jib {
     to {
         image = "ghcr.io/hsfl-webapps-react-ts-ss22/tasks-backend"
+        tags = setOf(project.version.toString())
     }
 }

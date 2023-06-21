@@ -1,5 +1,6 @@
-package de.progeek.tasks.model
+package de.progeek.tasks.security
 
+import de.progeek.tasks.model.User
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
